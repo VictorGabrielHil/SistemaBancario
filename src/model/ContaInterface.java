@@ -13,5 +13,15 @@ public interface ContaInterface {
     public double getSaldo();
 
     public void remunera();
+    
+    public String getTipoConta();
+    
+    public double getDepositoInicial();
+    
+    public double getLimite();
+    
+    public double getDepositoMinimo();
+    
+    public double getSaqueMinimo();
 
 }

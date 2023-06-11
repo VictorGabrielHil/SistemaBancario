@@ -1,30 +1,25 @@
 package model;
 
+
 public abstract class Conta implements ContaInterface {
-    private int numConta;
-    protected String tipo;
-    private Cliente dono;
+   
+    protected String tipoConta;
     protected double saldo;
+    protected double depositoInicial;
+    private Cliente dono;
+  
 
     
-    public Conta(int numConta, String tipo, Cliente dono, double saldo) {
+    public Conta(String tipoConta, Cliente dono, double saldo, double depositoInicial) {
 		super();
-		this.setNumConta(numConta);
-		this.setTipo(tipo) ;
+		this.setTipoConta(tipoConta) ;
 		this.setDono(dono) ;
 		this.setSaldo(saldo);
+		this.setDepositoInicial(depositoInicial);
 	}
 
-    public void setNumConta(int numConta) {
-        this.numConta = numConta;
-    }
-
-    public String getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+    public void setTipoConta(String tipoConta) {
+        this.tipoConta = tipoConta;
     }
 
     public Cliente getDono() {
@@ -42,15 +37,17 @@ public abstract class Conta implements ContaInterface {
     public void setSaldo(double saldo) {
         this.saldo = saldo;
     }
+    
+    public void setDepositoInicial(double depositoInicial) {
+        this.saldo = depositoInicial;
+    }
+    
 
-    
-    
-    @Override
-    public int getNumero()
-    	{ 
-    	return this.numConta; 
-    	}
-	
+	@Override
+	public int getNumero() {
+		// CRIAR MÉTODO QUE PUXA DO BANCO DE DADOS PARA APLICAÇÃO O NÚMERO DA CONTA
+		return 0;
+	}
 
 	@Override
     public boolean deposita(double valor){
@@ -60,7 +57,6 @@ public abstract class Conta implements ContaInterface {
         }
         else return false;
     }
-    
     @Override
     public boolean saca(double valor){
         if (valor > 0){
@@ -69,12 +65,25 @@ public abstract class Conta implements ContaInterface {
         }
         else return false;
     }
+    @Override
+    public void remunera(){}
     
-    public void remunera(){
-        
-    }
+    @Override
+    public String getTipoConta(){ return this.tipoConta; }
     
+    @Override
+   	public double getDepositoInicial(){ return this.depositoInicial;}
     
+    @Override
+    public double getLimite(){ return -1; }
+    
+    @Override 
+    public double getDepositoMinimo(){ return -1; }
+    
+    @Override
+    public double getSaqueMinimo(){ return -1; }
+    
+ 
     
     
 

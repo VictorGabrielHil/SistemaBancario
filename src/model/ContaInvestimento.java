@@ -7,20 +7,11 @@ public class ContaInvestimento extends Conta {
 	double saqueMinimo;
 
 	public ContaInvestimento(int numConta, String tipo, Cliente dono, double saldo, double depositoMinimo,
-			double montanteMinimo, double saqueMinimo) {
-		super(numConta, tipo, dono, saldo);
+			double montanteMinimo, double depositoInicial) {
+		super(tipo, dono, saldo, depositoInicial);
 		this.setDepositoMinimo(depositoMinimo);
 		this.setMontanteMinimo(montanteMinimo);
-		this.setSaqueMinimo(saqueMinimo);
 
-	}
-
-	public double getSaqueMinimo() {
-		return saqueMinimo;
-	}
-
-	public void setSaqueMinimo(double saqueMinimo) {
-		this.saqueMinimo = saqueMinimo;
 	}
 
 	public double getDepositoMinimo() {
